@@ -1,0 +1,57 @@
+.progress-container {
+  position: relative;
+    left:0px;
+    top: 70px;
+    width: 300px; /* Adjusted width for container */
+    height: 10px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #CFF9FF; /* Background similar to the one in the image */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .progress-bar {
+    position: absolute;
+    left: 15px;
+    width: 270px; /* Width matches the bar */
+    height: 35px;
+    background-color: #72D5F4;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .progress-bar-fill {
+    height: 100%;
+    background-color: #80c8ff;
+    border-radius: 15px;
+    transition: width 0.1s ease-in-out;
+  }
+  
+  .slider {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    border-radius: 90%;
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    transition: left 0.1s ease-in-out;
+  }
+  
+  .mileage-display {
+    position: relative;
+    top: 5px;
+    left: 150px;
+    margin-top: 0px;
+    font-size: 15px;
+    background-color: #000000; /* Adjusted color for the mileage display */
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+    min-width: 30px; /* Ensure consistent width */
+  }
+  

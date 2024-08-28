@@ -1,0 +1,31 @@
+
+  
+  .slider3 {
+    position: relative;
+    top: 340px;
+    height: 200px;
+    width: 50px;
+    padding: 5px 0px;
+    background-color: #CFF9FF;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .station-number {
+    font-size: 20px;
+    padding: 5px 0px;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .station-number.selected {
+    color: rgb(41, 119, 211);
+  }
+  
+  .station-number.unselected {
+    color: gray;
+  }
+  
