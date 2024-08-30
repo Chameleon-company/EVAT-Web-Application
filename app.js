@@ -3,19 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import FooterNavigation from './components/FooterNavigation';
-import MapScreen from './components/MapScreen';
-import TripPlannerScreen from './components/TripPlannerScreen';
-import SaveScreen from './components/SaveScreen';
-import MeScreen from './components/MeScreen';
 import MePage from './components/MePage'
 
 const Stack = createNativeStackNavigator();
 
 const routes = [
-  { name: 'Map', component: MapScreen },
-  { name: 'TripPlanner', component: TripPlannerScreen },
-  { name: 'Save', component: SaveScreen },
-  { name: 'Me', component: MeScreen },
   { name: 'MePage', component: MePage}
 ];
 
@@ -23,101 +15,100 @@ const App = () => {
   return (
     <NavigationContainer>
       <SafeAreaView style={styles.container}>
-        <Text style={styles.fancyText}>Happy Coding EVAT Legends</Text>
         <View style={styles.navigatorContainer}>
-          <Stack.Navigator initialRouteName="Map">
+        style={[styles.icon, styles.iconPosition]}
+        resizeMode="cover"
+        source={require("../assets/chameleoniconbutton.png")}
+        <Text style={styles.welcomeJohn}>Welcome John</Text>
+        <View style={styles.searchBar} />
+        <Image
+        style={[styles.paymentDetailsItem, styles.paymentLayout]}
+        resizeMode="cover"
+        source={require("../assets/ellipse-191.png")}
+        />
+        <Text style={[styles.text, styles.textLayout]}>2</Text>
+        <Text style={[styles.text1, styles.textLayout]}>+</Text>
+        <Image
+          style={[styles.paymentDetailsInner, styles.paymentLayout]}
+          resizeMode="cover"
+          source={require("../assets/ellipse-199.png")}
+        />
+        <Text style={[styles.paymentDetails1, styles.chargefoxTypo]}>
+          Payment Details
+        </Text>
+        <View style={styles.workingAreaOfPdWrapper}>
+          <View style={styles.workingAreaOfPd} />
+        </View>
+        <View style={[styles.currentPaymentDetails, styles.iconPosition]} />
+        <View style={[styles.rectangleView, styles.paymentChildLayout]} />
+        <View style={[styles.paymentDetailsChild1, styles.paymentChildLayout]} />
+        <View style={[styles.paymentDetailsChild2, styles.paymentChildLayout]} />
+        <RNPButton
+          style={styles.deletePaymentDetailsDropd}
+          mode="elevated"
+          labelStyle={styles.deletePaymentDetailsDropDBtn}
+          contentStyle={styles.deletePaymentDetailsDropDBtn1}
+        >
+          Delete Payment Details
+        </RNPButton>
+        <RNPButton
+          style={styles.deleteAccountConnectionsBut}
+          uppercase={false}
+          mode="elevated"
+          labelStyle={styles.deleteAccountConnectionsButBtn}
+          contentStyle={styles.deleteAccountConnectionsButBtn1}
+        >
+          Delete Account Connections?
+        </RNPButton>
+        <Button
+          title="Change Payment Type/Details"
+          radius="5"
+          iconPosition="left"
+          type="outline"
+          titleStyle={styles.changePaymentDetailsDropdBtn}
+          dropDownDirection="TOP"
+          containerStyle={styles.changePaymentDetailsDropdBtn1}
+          buttonStyle={styles.changePaymentDetailsDropdBtn2}
+        />
+        <Button
+          title="Current Payment Details"
+          radius="5"
+          iconPosition="left"
+          type="outline"
+          titleStyle={styles.currentPaymentDetailsDropBtn}
+          dropDownDirection="TOP"
+          containerStyle={styles.currentPaymentDetailsDropBtn1}
+          buttonStyle={styles.currentPaymentDetailsDropBtn2}
+        />
+        <View style={[styles.chargefoxDetails, styles.detailsLayout]}>
+          <View style={[styles.chargefoxDetailsChild, styles.detailsLayout]} />
+          <Text style={[styles.chargefox, styles.chargefoxTypo]}>ChargeFox</Text>
+        </View>
+        <Image
+          style={[styles.evieDetailsIcon, styles.detailsLayout]}
+          resizeMode="cover"
+          source={require("../assets/evie-details.png")}
+        />
+        <Text style={[styles.connectedAccounts, styles.chargefoxTypo]}>
+          Connected Accounts
+        </Text>
+        <Image
+          style={styles.chargefox1Icon}
+          resizeMode="cover"
+          source={require("../assets/chargefox-1.png")}
+        />
+        <Image
+          style={styles.evie1Icon}
+          resizeMode="cover"
+          source={require("../assets/evie-1.png")}
+        />
+      </View>
+        </SafeAreaView>
+        <Stack.Navigator initialRouteName="Map">
             {routes.map((route, index) => (
               <Stack.Screen key={index} name={route.name} component={route.component} />
             ))}
           </Stack.Navigator>
-          style={[styles.icon, styles.iconPosition]}
-        resizeMode="cover"
-        source={require("../assets/chameleoniconbutton.png")}
-      <Text style={styles.welcomeJohn}>Welcome John</Text>
-      <View style={styles.searchBar} />
-      <Image
-        style={[styles.paymentDetailsItem, styles.paymentLayout]}
-        resizeMode="cover"
-        source={require("../assets/ellipse-191.png")}
-      />
-      <Text style={[styles.text, styles.textLayout]}>2</Text>
-      <Text style={[styles.text1, styles.textLayout]}>+</Text>
-      <Image
-        style={[styles.paymentDetailsInner, styles.paymentLayout]}
-        resizeMode="cover"
-        source={require("../assets/ellipse-199.png")}
-      />
-      <Text style={[styles.paymentDetails1, styles.chargefoxTypo]}>
-        Payment Details
-      </Text>
-      <View style={styles.workingAreaOfPdWrapper}>
-        <View style={styles.workingAreaOfPd} />
-      </View>
-      <View style={[styles.currentPaymentDetails, styles.iconPosition]} />
-      <View style={[styles.rectangleView, styles.paymentChildLayout]} />
-      <View style={[styles.paymentDetailsChild1, styles.paymentChildLayout]} />
-      <View style={[styles.paymentDetailsChild2, styles.paymentChildLayout]} />
-      <RNPButton
-        style={styles.deletePaymentDetailsDropd}
-        mode="elevated"
-        labelStyle={styles.deletePaymentDetailsDropDBtn}
-        contentStyle={styles.deletePaymentDetailsDropDBtn1}
-      >
-        Delete Payment Details
-      </RNPButton>
-      <RNPButton
-        style={styles.deleteAccountConnectionsBut}
-        uppercase={false}
-        mode="elevated"
-        labelStyle={styles.deleteAccountConnectionsButBtn}
-        contentStyle={styles.deleteAccountConnectionsButBtn1}
-      >
-        Delete Account Connections?
-      </RNPButton>
-      <Button
-        title="Change Payment Type/Details"
-        radius="5"
-        iconPosition="left"
-        type="outline"
-        titleStyle={styles.changePaymentDetailsDropdBtn}
-        dropDownDirection="TOP"
-        containerStyle={styles.changePaymentDetailsDropdBtn1}
-        buttonStyle={styles.changePaymentDetailsDropdBtn2}
-      />
-      <Button
-        title="Current Payment Details"
-        radius="5"
-        iconPosition="left"
-        type="outline"
-        titleStyle={styles.currentPaymentDetailsDropBtn}
-        dropDownDirection="TOP"
-        containerStyle={styles.currentPaymentDetailsDropBtn1}
-        buttonStyle={styles.currentPaymentDetailsDropBtn2}
-      />
-      <View style={[styles.chargefoxDetails, styles.detailsLayout]}>
-        <View style={[styles.chargefoxDetailsChild, styles.detailsLayout]} />
-        <Text style={[styles.chargefox, styles.chargefoxTypo]}>ChargeFox</Text>
-      </View>
-      <Image
-        style={[styles.evieDetailsIcon, styles.detailsLayout]}
-        resizeMode="cover"
-        source={require("../assets/evie-details.png")}
-      />
-      <Text style={[styles.connectedAccounts, styles.chargefoxTypo]}>
-        Connected Accounts
-      </Text>
-      <Image
-        style={styles.chargefox1Icon}
-        resizeMode="cover"
-        source={require("../assets/chargefox-1.png")}
-      />
-      <Image
-        style={styles.evie1Icon}
-        resizeMode="cover"
-        source={require("../assets/evie-1.png")}
-      />
-    </View>
-        </SafeAreaView>
         <FooterNavigation />
     </NavigationContainer>
   );
