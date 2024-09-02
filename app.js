@@ -21,9 +21,8 @@ const App = () => {
   return (
     <NavigationContainer>
       <SafeAreaView style={styles.container}>
-        <Text style={styles.fancyText}>Happy Coding EVAT Legends</Text>
         <View style={styles.navigatorContainer}>
-          <Stack.Navigator initialRouteName="Map">
+          <Stack.Navigator initialRouteName="Map" screenOptions={{ headerShown: false }}>
             {routes.map((route, index) => (
               <Stack.Screen key={index} name={route.name} component={route.component} />
             ))}
