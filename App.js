@@ -3,6 +3,7 @@ import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {enableScreens} from 'react-native-screens';
+import chargingStation from './src/screens/chargingStation'
 import SigninPage from './src/screens/SigninPage';
 import SignupPage from './src/screens/SignupPage';
 
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen component={chargingStation} />
         <Stack.Screen name="Signin" component={SigninPage} />
         <Stack.Screen name="Signup" component={SignupPage} />
       </Stack.Navigator>
