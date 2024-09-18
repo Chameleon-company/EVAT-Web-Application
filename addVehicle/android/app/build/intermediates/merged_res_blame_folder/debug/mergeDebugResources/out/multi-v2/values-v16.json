@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.addvehiclepage.app-mergeDebugResources-23:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/home/eswar/.gradle/caches/8.8/transforms/444ae3e40e2b43d3188cf28e0b4dc278/transformed/appcompat-1.6.1/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "/home/eswar/.gradle/caches/8.8/transforms/0c02aa65ff8b11d5022566d0302b25e2/transformed/core-1.9.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        }
+    ]
+}

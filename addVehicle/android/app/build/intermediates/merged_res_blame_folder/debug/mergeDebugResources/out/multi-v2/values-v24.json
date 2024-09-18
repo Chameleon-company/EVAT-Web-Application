@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.addvehiclepage.app-mergeDebugResources-23:/values-v24/values-v24.xml",
+            "map": [
+                {
+                    "source": "/home/eswar/.gradle/caches/8.8/transforms/444ae3e40e2b43d3188cf28e0b4dc278/transformed/appcompat-1.6.1/res/values-v24/values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
+                    }
+                }
+            ]
+        }
+    ]
+}

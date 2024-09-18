@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "dependencies": {
+    "package.json": "^0.0.0",
+    "pkg.json": "^2.0.8",
+    "react-scripts": "^5.0.1"
+  }
+}
