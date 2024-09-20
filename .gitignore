@@ -1,23 +1,59 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# Dependencies
 /node_modules
-/.pnp
-.pnp.js
 
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
+# Miscellaneous
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.pem
+
+# Environment
+.env
+
+# iOS build artifacts and related
+**/*.moved-aside
+**/*.pbxuser
+**/*.perspectivev3
+**/*.xcuserstate
+**/*.xcscmblueprint
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.DS_Store
+ios/Pods
+ios/build
+ios/DerivedData
+ios/.generated/
+
+# Android build artifacts and related
+android/.gradle
+android/app/build
+android/app/.cxx/
+android/app/src/main/assets/index.android.bundle
+android/app/src/main/assets/index.android.bundle.meta
+android/app/src/main/res/drawable-*/app_icon.png
+android/keystore.properties
+*.jks
+*.keystore
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# Watchman
+.watchmanconfig
+.watchmanstate
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Ejecta
+ejecta/
