@@ -7,14 +7,53 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SigninPage = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleEmailSignin = () => {
-    // Implement sign-in logic
+  // Email validation function
+  const validateEmail = email => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const handleEmailSignin = async () => {
+    // Validate email before proceeding
+    if (!validateEmail(email)) {
+      Alert.alert('Invalid Email', 'Please enter a valid email address.');
+      return;
+    }
+
+    if (password === '') {
+      Alert.alert('Empty Password', 'Please enter your password.');
+      return;
+    }
+    try {
+      const response = await fetch(
+        'http://192.168.1.100:8001/api/auth/signin',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({email, password}),
+        },
+      );
+      if (response.ok) {
+        // Store user email AsyncStorage after successful login
+        await AsyncStorage.setItem('userEmail', email);
+        Alert.alert('Login Successful', 'Welcome back!');
+      } else {
+        // Handle sign-in error, e.g., display an error message
+        console.log('Sign-in failed', data.message);
+      }
+    } catch (error) {
+      console.error('Error signing in:', error);
+    }
   };
 
   const handleGoogleSignin = () => {
@@ -76,7 +115,7 @@ const SigninPage = ({navigation}) => {
         <Text style={styles.emailButtonText}>Sign In</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+      <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
         <Text style={styles.signupText}>
           Don't you have an account? Go to Sign Up
         </Text>
@@ -102,7 +141,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginBottom: 20,
-    alignSelf: 'center', // Centers the logo horizontally
+    alignSelf: 'center',
   },
   title: {
     fontSize: 52,
