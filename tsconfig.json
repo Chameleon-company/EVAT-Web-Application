@@ -1,16 +1,17 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json",
+  "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "jsx": "react-native",
     "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": ["ESNext", "DOM"],
-    "allowJs": true
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
   },
-  "include": ["*.ts", "*.tsx", "*.js"],
-  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+, "components/DeleteAccountButton.jsx", "components/PaymentOptions.jsx", "components/DeleteAccountButton.jsx", "components/ConnectedAccounts.jsx"  ]
 }
