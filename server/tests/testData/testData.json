@@ -1,0 +1,17 @@
+[{
+    "_id": "66d7e0a1cdf87e8b5d63dba3",
+    "cost": "$0.30/kWh",
+    "charging_points": 1,
+    "pay_at_location": false,
+    "membership_required": true,
+    "access_key_required": true,
+    "is_operational": true,
+    "latitude": -24.42389008,
+    "longitude": 145.4619167,
+    "operator": "Queensland Electric Super Highway",
+    "connection_type": "CCS (Type 2)",
+    "power_output": 75.0,
+    "current_type": "DC",
+    "charging_points_flag": 0,
+    "cluster": 21
+}]
