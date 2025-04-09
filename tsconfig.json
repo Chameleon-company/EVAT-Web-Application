@@ -1,0 +1,12 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "es2015",
+    "sourceMap": true,
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "strict": true
+  },
+  "include": ["src/**/*"]
+}
+
