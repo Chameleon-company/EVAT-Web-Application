@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1049159207399",
+    "project_id": "myapp-evat",
+    "storage_bucket": "myapp-evat.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049159207399:android:6c4c683dc4838e7f2f1542",
+        "android_client_info": {
+          "package_name": "come.evat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1049159207399-makggcv7fr7q969mslbujpp37msf31hp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "come.evat",
+            "certificate_hash": "2b8cd4364c1eac0216d90f40754ef798d7266cbf"
+          }
+        },
+        {
+          "client_id": "1049159207399-bj8596r36juqjrnssd8k2bspsng7dfpr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4hP6-IqvCACMrfd0Xgrzbe6_61rK4rcM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1049159207399-bj8596r36juqjrnssd8k2bspsng7dfpr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
