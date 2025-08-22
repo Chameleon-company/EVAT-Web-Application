@@ -6,6 +6,7 @@ import { enableScreens, ScreenStackHeaderBackButtonImage } from 'react-native-sc
 import SigninPage from './src/screens/SigninPage';
 import SignupPage from './src/screens/SignupPage';
 import MapPage from './src/screens/MapPage';
+import AccountManagementPage from './src/screens/AccountManagementPage';
 import { UserProvider } from './src/context/user.context';
 
 enableScreens();
@@ -31,12 +32,11 @@ const App = () => {
           <Stack.Screen name="SigninPage" component={SigninPage} options={{ ...options, title: "EVAT Sign In" }} />
           <Stack.Screen name="SignupPage" component={SignupPage} options={{ ...options, title: "EVAT Sign Up" }} />
           <Stack.Screen name="MapPage" component={MapPage} options={{ ...options, title: "EVAT", headerBackTitleVisible: false, headerTitleAlign: 'left' }} />
+          <Stack.Screen name="AccountManagementPage" component={AccountManagementPage} options={{ ...options, title: "Account Management" }} />
         </Stack.Navigator>
       </NavigationContainer>
     </UserProvider>
   );
 };
-
-
 
 export default App;
