@@ -37,7 +37,8 @@ const config = ConfigData();
 //set the mode of the application to either dev or prod
 const mode = config.mode;
 //set the backend URL based on the mode of the application
-let url2 = config.backendURL(mode) + `/api/chargers`
+const url2 = config.backendURL(mode) + `/api/chargers`;
+const suitabilityUrl = config.backendURL(mode) + `/api/predict/suitability`;
 
 //for testing purposes
 console.log("Mode: ", mode, ", URL: ", url2);
@@ -55,6 +56,8 @@ const MapPage = () => {
   const [selectedCharger, setSelectedCharger] = useState<{ latitude: number; longitude: number } | null>(null);
   const [travelTime, setTravelTime] = useState<number | null>(null);
   const [travelDistance, setTravelDistance] = useState<number | null>(null);
+  const [suitabilitySites, setSuitabilitySites] = useState<any[]>([]);
+  const [showSuitability, setShowSuitability] = useState<boolean>(false);
 
   const navigation = useNavigation()<any>;
 
@@ -220,6 +223,32 @@ const MapPage = () => {
     }
   }
 
+  const fetchTopSuitabilitySites = async () => {
+  try {
+    const response = await fetch(`${suitabilityUrl}/top?n=10`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token.accessToken}`
+      }
+    });
+    const result = await response.json();
+    if (response.ok) {
+      setSuitabilitySites(result.data);
+      setShowSuitability(true);
+      Alert.alert(
+        "📍 Site Suitability",
+        `Showing top ${result.data.length} recommended EV charger locations`
+      );
+    } else {
+      Alert.alert("Error", "Could not retrieve suitability data");
+    }
+  } catch (error) {
+    console.log("Error fetching suitability sites:", error);
+    Alert.alert("Error", "Could not connect to suitability service");
+  }
+}
+
   return (
     <View style={styles.container}>
       <SearchModal dataIn={{ lat: region?.latitude, lon: region?.longitude }} onResults={searchChargers} visible={searchWindow} onClose={() => setSearchWindow(false)} />
@@ -249,6 +278,20 @@ const MapPage = () => {
             goToPressed={(location) => setSelectedCharger(location)}
           />
         ))}
+
+        {showSuitability && suitabilitySites && suitabilitySites.map((site, idx) => (
+          <MapView.Marker
+            key={`suitability-${idx}`}
+            coordinate={{
+              latitude: site.lat,
+              longitude: site.lon,
+            }}
+            title={site.sa2}
+            description={`Suitability Score: ${site.suitability_score} | Rank: ${site.rank}`}
+            pinColor="green"
+  />
+))}
+        
 
         {selectedCharger && (
           <MapViewDirections
@@ -283,7 +326,18 @@ const MapPage = () => {
         <NavigationInfo travelDistance={travelDistance} travelTime={travelTime} cancelFunction={cancelNavigation} />
         // <NavigationInfo travelDistance={"10"} travelTime={"10"} />
       )}
-
+      
+      <View style={styles.suitabilityButtonContainer}>
+        <Text
+          style={styles.suitabilityButton}
+          onPress={() => showSuitability 
+            ? setShowSuitability(false) 
+            : fetchTopSuitabilitySites()
+          }
+        >
+          {showSuitability ? "Hide Suitability Sites" : "Show Suitability Sites"}
+        </Text>
+      </View>
 
       <NavBar searchFunction={searchFunction} settingsFunction={settingsFunction} />
     </View>
@@ -330,7 +384,23 @@ const styles = StyleSheet.create({
   loadingText: {
     backgroundColor: '#ffffff55',
     fontSize: 25,
-  }
+  },
+  suitabilityButtonContainer: {
+  position: 'absolute',
+  bottom: 80,
+  left: 20,
+  zIndex: 10,
+  },
+  suitabilityButton: {
+  backgroundColor: '#2E75B6',
+  color: 'white',
+  paddingVertical: 10,
+  paddingHorizontal: 16,
+  borderRadius: 8,
+  fontSize: 14,
+  fontWeight: 'bold',
+  overflow: 'hidden',
+  },
 });
 
 export default MapPage;
